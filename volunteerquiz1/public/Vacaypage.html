@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Time</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d0d4f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px #888;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: white;
+            text-shadow: 2px 2px 4px #888;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-align: center;
+            width: 250px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .card p {
+            font-size: 1rem;
+            padding: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        #result {
+            font-size: 1.2rem;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Vacation Time!</h1>
+    <h2>Where do you want to go?</h2>
+
+    <div class="container">
+        <div class="card" onclick="saveChoice('road trip across western canada')">
+            <img src="canada.png" alt="Western Canada">
+            <p>Road trip across western canada</p>
+        </div>
+
+        <div class="card" onclick="saveChoice('taking a tour of the amazon rainforest')">
+            <img src="rainforest.png" alt="Amazon Rainforest">
+            <p>Taking a tour of the amazon rainforest</p>
+        </div>
+
+        <div class="card" onclick="saveChoice('exploring the food and culture of paris')">
+            <img src="paris.png" alt="Paris">
+            <p>Exploring the food and culture of paris</p>
+        </div>
+
+        <div class="card" onclick="saveChoice('going to a computer museum')">
+            <img src="compm.png" alt="Computer Museum">
+            <p>Going to a computer museum</p>
+        </div>
+    </div>
+
+    <p id="result"></p>
+
+    <script>
+        function saveChoice(choice) {
+            localStorage.setItem("selectedVacation", choice);  // Save choice in local storage
+            document.getElementById("result").innerText = "You selected: " + choice; // Show feedback
+        }
+
+        // Show saved choice if user refreshes
+        window.onload = function() {
+            let savedChoice = localStorage.getItem("selectedVacation");
+            if (savedChoice) {
+                document.getElementById("result").innerText = "You previously selected: " + savedChoice;
+            }
+        };
+    </script>
+
+</body>
+</html>
