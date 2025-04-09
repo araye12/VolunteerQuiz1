@@ -15,7 +15,7 @@ body {
   min-height: 100vh;
   text-align: center;
   padding: 2rem;
-  background-color: #685645; /* Light brown background */
+  background-color: #685645;
 }
 
 .title {
@@ -23,7 +23,7 @@ body {
   font-weight: 600;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  margin-top: 10rem;
+  margin-top: 5rem;
 }
 
 .subtitle {
@@ -38,7 +38,7 @@ body {
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
-  margin-top: 14rem;
+  margin-top: 3rem;
 }
 
 .category {
@@ -54,29 +54,19 @@ body {
   border-radius: 10px;
 }
 
-.category h2 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 0.5rem;
-}
-
-.traits-container {
-  margin-top: 20rem; /* spacing above the new section */
-}
-  
 .traits-title {
   font-size: 3rem;
   color: white;
   margin-bottom: 2rem;
 }
-  
+
 .traits-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
   justify-items: center;
 }
-  
+
 .trait-card {
   background-color: #fefefe;
   width: 250px;
@@ -84,36 +74,68 @@ body {
   border-radius: 10px;
   text-align: center;
 }
-  
-  /* Trait headings */
+
 .trait-card h3 {
   font-size: 1rem;
   margin-bottom: 1rem;
   color: #333;
 }
-  
-  /* Trait images */
+
 .trait-card img {
   width: 100%;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-  
-  /* Background colors for trait cards */
-.trait-pink {
-  background-color: #f8caca;
-}
-.trait-green {
-  background-color: #c8f8c8;
-  }
-  
-.trait-yellow {
-  background-color: #f8e8b0;
-}
-  
-.trait-blue { 
- background-color: #c8e2f8;
-} 
 
+.trait-pink { background-color: #f8caca; }
+.trait-green { background-color: #c8f8c8; }
+.trait-yellow { background-color: #f8e8b0; }
+.trait-blue { background-color: #c8e2f8; }
 
+.vacation-container {
+  display: flex; /* Arrange items side by side */
+  justify-content: center; /* Center items horizontally */
+  gap: 1.5rem; /* Add space between cards */
+  flex-wrap: wrap; /* Ensure wrapping on smaller screens */
+  padding: 2rem;
+}
+.card {
+  width: 250px; /* Fixed width for uniformity */
+  text-align: center;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+  margin-top: 8rem;
+
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card p {
+  font-size: 1rem;
+  padding: 10px;
+  font-weight: bold;
+  color: #555;
+}
+
+.next-button, .prev-button {
+  margin-top: 2rem;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #6d6d6d;
+}
