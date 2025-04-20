@@ -9,12 +9,14 @@ import paris from "./assets/paris.png";
 import compm from "./assets/compm.png";
 import farmer from "./assets/farmer.png";
 import grass from "./assets/grass.png";
+import tree from "./assets/tree.png";
 import "./App.css";
 
 const App = () => {
   const [section, setSection] = useState(1);
   const [history, setHistory] = useState([]);
   const [selectedHobbies, setSelectedHobbies] = useState([]);
+  const [selectedHouseOption, setselectedHouseOption] = useState(null);
   const [selectedLightup, setSelectedLightup] = useState("");
 
 
@@ -48,6 +50,7 @@ const App = () => {
     3: '#E0F4FF',  
     4: '#D8BFD8' , 
     5: '#f0e4d7',
+    6: '#f0e4d7',
   };
 
   document.body.style.backgroundColor = sectionBackgrounds[section];
@@ -180,7 +183,40 @@ const App = () => {
           </div>
         </>
       )}
-      {section === 5 && (
+
+        {section === 5 && (
+          <>
+            <h1 className="house-title">
+              If you’re buying a house, which one of these features needs to be on your wishlist?
+            </h1>
+        
+            <div className="house-options">
+              {[
+                "Separate home office, so I have plenty of space to organize my work",
+                "Huge yard for a garden, bonus if it already has some mature fruit trees",
+                "Right on mainstreet, I want to be able to walk to my favorite restaurants and town festivals",
+                "A large workshop where I can keep all my tools and equipment while I work on my projects"
+              ].map((option, index) => (
+                <div
+                  key={index}
+                  className={`house-option option-${index + 1} ${selectedHouseOption === index ? "selected" : ""}`}
+                  onClick={() => setSelectedHouseOption(index)}
+                >
+                  {option}
+                </div>
+              ))}
+            </div>
+            <div className="tree-image-wrapper">
+              <img src={tree} alt="Tree" className="tree-image" />
+           </div>
+            <div className="nav-buttons">
+              <button className="prev-button" onClick={() => setSection(4)}>←</button>
+              <button className="next-button" onClick={() => setSection(6)}>→</button>
+            </div>
+          </>
+        )}
+        
+      {section === 6 && (
          <>
          <h1 className="lightup-title">What lights you up?</h1>
     <div className="lightup-grid">
@@ -214,8 +250,8 @@ const App = () => {
               </div>
 
                <div className="nav-buttons">
-                  <button className="prev-button" onClick={() => setSection(4)}>←</button>
-                  <button className="next-button" onClick={() => setSection(6)}>→</button>
+                  <button className="prev-button" onClick={() => setSection(5)}>←</button>
+                  <button className="next-button" onClick={() => setSection(7)}>→</button>
                 </div>
              </>
            )}
