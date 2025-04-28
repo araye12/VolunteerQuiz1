@@ -10,6 +10,10 @@ import compm from "./assets/compm.png";
 import farmer from "./assets/farmer.png";
 import grass from "./assets/grass.png";
 import tree from "./assets/tree.png";
+import practical from "./assets/practical.png";
+import dynamic from "./assets/dynamic.png";
+import contemplative from "./assets/contemplative.png";
+import creative from "./assets/creative.png";
 import "./App.css";
 
 const App = () => {
@@ -24,9 +28,21 @@ const App = () => {
   const [teamPercentages, setTeamPercentages] = useState({});
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (window.parent) {
+      window.parent.scrollTo({ top: 0, behavior: "smooth" });
+      window.parent.postMessage(
+        {
+          type: "resize",
+          height: document.body.scrollHeight,
+        },
+        "*"
+      );
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   }, [section]);
-
+  
+  
   const toggleHobby = (hobby) => {
     if (selectedHobbies.includes(hobby)) {
       setSelectedHobbies(selectedHobbies.filter((h) => h !== hobby));
@@ -189,19 +205,19 @@ const App = () => {
           <div className="traits-grid">
             <div className={`trait-card trait-pink ${selectedTrait === "facilities" ? "selected" : ""}`} onClick={() => setSelectedTrait("facilities")}>
               <h3>Practical, Problem-Solving, Resourceful</h3>
-              <img src={x11} alt="Practical Traits" />
+              <img src={practical} alt="Practical Traits" />
             </div>
             <div className={`trait-card trait-green ${selectedTrait === "growing" ? "selected" : ""}`} onClick={() => setSelectedTrait("growing")}>
               <h3>Dynamic, Outdoorsy, Passionate</h3>
-              <img src={x21} alt="Dynamic Traits" />
+              <img src={dynamic} alt="Dynamic Traits" />
             </div>
             <div className={`trait-card trait-yellow ${selectedTrait === "operations" ? "selected" : ""}`} onClick={() => setSelectedTrait("operations")}>
               <h3>Big Picture Oriented, Contemplative, Organized</h3>
-              <img src={x31} alt="Big Picture Traits" />
+              <img src={contemplative} alt="Big Picture Traits" />
             </div>
             <div className={`trait-card trait-blue ${selectedTrait === "engagement" ? "selected" : ""}`} onClick={() => setSelectedTrait("engagement")}>
               <h3>Creative, Social, Planner</h3>
-              <img src={x41} alt="Creative Traits" />
+              <img src={creative} alt="Creative Traits" />
             </div>
           </div>
           <div className="nav-buttons">

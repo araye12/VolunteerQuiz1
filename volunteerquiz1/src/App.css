@@ -41,11 +41,15 @@ body {
 }
 
 .categories {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  flex-wrap: wrap;
-  margin-top: 3rem;
+  justify-items: center;
+  justify-content: center; 
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .category {
@@ -87,11 +91,11 @@ body {
 
 .traits-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Ensures 2 columns */
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   justify-items: center;
-  width: 100%; /* Ensure it uses the full width */
-  max-width: 1200px; /* Optional: Max width to control layout on large screens */
+  width: 100%;
+  max-width: 1200px; 
   margin: 0 auto;
 }
 
@@ -113,7 +117,6 @@ body {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 .trait-card.selected {
   outline: 3px solid #2e4a5e;
@@ -162,7 +165,7 @@ body {
   gap: 2rem;
   margin-top: 2rem;
   width: 100%;
-  padding-bottom: 3rem; /* space above grass */
+  padding-bottom: 3rem; 
 }
 
 
@@ -193,20 +196,18 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;       /* makes the grass span the full width */
+  width: 100%;       
   height: auto;
   z-index: 2;
 }
 
 .bottom-farmer {
   position: absolute;
-  bottom: 20px;  /* lifts the farmer up to sit nicely on the grass */
+  bottom: 20px;  
   width: 450px; 
-  margin-left: 8rem;  /* make the farmer bigger */
+  margin-left: 8rem;  
   z-index: 1;
 }
-
-
 
 .hobby-button.selected {
   background-color: #87c3e6;
@@ -221,16 +222,16 @@ body {
 
 .vacation-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 4rem;
     padding: 1rem;
-    max-width: 600px; /* Optional: keeps grid nicely centered */
+    max-width: 600px; 
     margin: 0 auto;
 }
   
 
 .card {
-  width: 100%; /* Fixed width for uniformity */
+  width: 100%; 
   text-align: center;
   background: white;
   border-radius: 15px;
@@ -271,11 +272,10 @@ body {
 
 .button-container {
   display: flex;
-  width: 100%; /* Ensures the container spans full width */
-  padding-right: 1rem; /* Adds some space to the right edge of the container */  
+  width: 100%; 
+  padding-right: 1rem; 
 }
 
-/* Button Styles */
 .next-button, .prev-button {
   padding: 10px 20px;
   font-size: 1.5rem;
@@ -322,9 +322,8 @@ body {
   z-index: 2;
 }
 
-/* Colors for each option */
 .option-1 {
-  background-color: #b7e089; /* light green */
+  background-color: #b7e089; 
   color: #111;
 }
 
@@ -366,7 +365,6 @@ body {
   z-index: 0;
 }
 
-/* Tree art suggestion */
 .house-tree {
   margin-top: 2rem;
   width: 100%;
@@ -434,7 +432,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-start; /* ⬅️ aligns content toward bottom */
+  align-items: flex-start; 
   gap: 3rem;
   padding: 4rem 2rem;
   max-width: 1200px;
@@ -547,7 +545,16 @@ body {
     padding: 2rem 1rem;
     margin: 1rem;
   }
-
+  @media (max-width: 1000px) {
+    .categories {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    .categories {
+      grid-template-columns: 1fr;
+    }
+  }
   .result-image {
     max-height: 300px;
   }
@@ -555,5 +562,190 @@ body {
   .result-right {
     text-align: center;
   }
+  .trait-card {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.hobbies-grid {
+  grid-template-columns: 1fr; 
+  gap: 1rem;
+}
+
+.vacation-container {
+  grid-template-columns: 1fr; 
+  gap: 2rem;
+}
+
+.lightup-grid {
+  grid-template-columns: 1fr; 
+  gap: 2rem;
+}
+
+.house-options {
+  width: 100%;
+}
+
+.house-option {
+  width: 90%;
+}
+
+.next-button, .prev-button {
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  margin: 1rem 0.5rem;
+}
+
+.result-right h2 {
+  font-size: 2rem;
+}
+
+.result-right h3 {
+  font-size: 1.1rem;
+}
+
+.result-description {
+  font-size: 1rem;
+  padding: 0 1rem;
+  margin-top: 1rem;
+}
+
+.restart-button {
+  font-size: 1rem;
+  padding: 8px 16px;
+}
+
+.legend {
+  font-size: 0.9rem;
+}
+
+.result-content-wrapper {
+  margin-top: -2rem;
+}
+.trait-card {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.hobbies-grid {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.vacation-container {
+  grid-template-columns: 1fr; 
+  gap: 2rem;
+}
+
+.lightup-grid {
+  grid-template-columns: 1fr; 
+  gap: 2rem;
+}
+
+.house-options {
+  width: 100%;
+}
+
+.house-option {
+  width: 90%;
+}
+
+.next-button, .prev-button {
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  margin: 1rem 0.5rem;
+}
+
+.result-right h2 {
+  font-size: 2rem;
+}
+
+.result-right h3 {
+  font-size: 1.1rem;
+}
+
+.result-description {
+  font-size: 1rem;
+  padding: 0 1rem;
+  margin-top: 1rem;
+}
+
+.restart-button {
+  font-size: 1rem;
+  padding: 8px 16px;
+}
+
+.legend {
+  font-size: 0.9rem;
+}
+
+.result-content-wrapper {
+  margin-top: -2rem;
+}
+.trait-card {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.hobbies-grid {
+  grid-template-columns: 1fr; 
+  gap: 1rem;
+}
+
+.vacation-container {
+  grid-template-columns: 1fr; 
+  gap: 2rem;
+}
+
+.lightup-grid {
+  grid-template-columns: 1fr; 
+  gap: 2rem;
+}
+
+.house-options {
+  width: 100%;
+}
+
+.house-option {
+  width: 90%;
+}
+
+.next-button, .prev-button {
+  font-size: 1.2rem;
+  padding: 8px 16px;
+  margin: 1rem 0.5rem;
+}
+
+.result-right h2 {
+  font-size: 2rem;
+}
+
+.result-right h3 {
+  font-size: 1.1rem;
+}
+
+.result-description {
+  font-size: 1rem;
+  padding: 0 1rem;
+  margin-top: 1rem;
+}
+
+.restart-button {
+  font-size: 1rem;
+  padding: 8px 16px;
+}
+
+.legend {
+  font-size: 0.9rem;
+}
+
+.result-content-wrapper {
+  margin-top: -2rem;
+}
+.star {
+  width: 150px;
+  height: 150px;
+  top: 0;
+}
 }
 
